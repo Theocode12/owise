@@ -6,12 +6,14 @@ use Composer\InstalledVersions;
 use Illuminate\Foundation\Console\AboutCommand;
 use Illuminate\Http\Client\Factory as HttpFactory;
 use Illuminate\Log\LogManager;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Owise\Account\Environment;
 use Owise\Api\ApiClientFactory;
 use Owise\Auth\AuthorizationTokenProvider;
 use Owise\Auth\ClientCredentialsTokenProvider;
 use Owise\Auth\TokenProviderFactory;
+use Owise\Console\DoctorCommand;
 use Owise\Console\RefreshAuthorizationCommand;
 use Owise\Console\TransfersSyncCommand;
 use Owise\Console\WebhooksCommand;
@@ -145,12 +147,17 @@ class WiseServiceProvider extends ServiceProvider
         }
 
         if ($this->app->runningInConsole()) {
-            $this->commands([WebhooksCommand::class, RefreshAuthorizationCommand::class, TransfersSyncCommand::class]);
+            $this->commands([DoctorCommand::class, WebhooksCommand::class, RefreshAuthorizationCommand::class, TransfersSyncCommand::class]);
         }
 
         AboutCommand::add('Owise', fn (): array => [
             'Version' => InstalledVersions::getPrettyVersion('theocode12/owise') ?? 'unknown',
-            'Default profile' => config('wise.default_profile'),
+            'Environment' => config('wise.environment', 'sandbox'),
+            'Default profile' => config('wise.default_profile', 'default'),
+            'Profiles' => $this->aboutProfiles(),
+            'Webhook route' => Route::has('wise.webhook') ? 'registered' : 'disabled',
+            'Queue connection' => config('wise.webhooks.connection') ?: config('queue.default', '—'),
+            'Models' => $this->aboutModels(),
         ]);
     }
 
@@ -163,6 +170,39 @@ class WiseServiceProvider extends ServiceProvider
             __DIR__.'/../config/wise.php' => $this->app->configPath('wise.php'),
         ], 'wise-config');
 
+    }
+
+    /**
+     * Get configured profile names for the About command without exposing credentials.
+     */
+    private function aboutProfiles(): string
+    {
+        $profiles = config('wise.profiles', []);
+        if (! is_array($profiles) || $profiles === []) {
+            return 'none configured';
+        }
+
+        return implode(', ', array_map('strval', array_keys($profiles)));
+    }
+
+    /**
+     * Get configured model class names for the About command.
+     */
+    private function aboutModels(): string
+    {
+        $models = config('wise.models', []);
+        if (! is_array($models) || $models === []) {
+            return 'none configured';
+        }
+
+        $configured = [];
+        foreach ($models as $name => $model) {
+            if (is_string($name) && is_string($model) && $model !== '') {
+                $configured[] = "{$name}: {$model}";
+            }
+        }
+
+        return $configured === [] ? 'none configured' : implode(', ', $configured);
     }
 
     /**

@@ -54,6 +54,10 @@ it('adds the package to the about command', function () {
     $about = json_decode(Artisan::output(), true);
 
     expect($about)->toHaveKey('owise')
-        ->and($about['owise'])->toHaveKeys(['version', 'default_profile'])
-        ->and($about['owise']['default_profile'])->toBe('default');
+        ->and($about['owise'])->toHaveKeys(['version', 'environment', 'default_profile', 'profiles', 'webhook_route', 'queue_connection', 'models'])
+        ->and($about['owise']['environment'])->toBe('sandbox')
+        ->and($about['owise']['default_profile'])->toBe('default')
+        ->and($about['owise']['profiles'])->toBe('default')
+        ->and($about['owise']['webhook_route'])->toBe('registered')
+        ->and($about['owise']['models'])->toContain('recipient: Owise\\Models\\WiseRecipient');
 });

@@ -23,6 +23,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Error mapping to `AuthenticationFailed`, `PermissionDenied`, `StrongCustomerAuthenticationRequired`, `RateLimited`,
   `TransferCannotBeCancelled`, `WiseApiError` and `ConnectionFailed`, exposing Wise `errors[]`, trace and correlation ids.
 - Strong Customer Authentication signing for UK/EEA personal tokens via `wise.sca.private_key`.
+- Added `wise:doctor` diagnostics for configured profiles, credentials, connectivity, SCA and webhook keys, routes, queues, and
+  OAuth cache locks; expanded the Laravel About section with Owise runtime configuration.
 
 ### Changed
 
