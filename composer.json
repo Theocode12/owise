@@ -1,6 +1,6 @@
 {
     "name": "theocode12/owise",
-    "description": "Laravel-native payouts and treasury for Wise, built on theocode12/wise-php-sdk.",
+    "description": "Laravel-native payouts and treasury for Wise, built on the Wise Platform API.",
     "keywords": [
         "laravel",
         "wise",
