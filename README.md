@@ -13,7 +13,7 @@
         <img src="https://img.shields.io/packagist/v/theocode12/owise" alt="Latest Stable Version">
     </a>
     <a href="https://packagist.org/packages/theocode12/owise">
-        <img src="https://img.shields.io/packagist/l/theocode12/owise" alt="License">
+        <img src="https://img.shields.io/packagist/l/theocode12/owise?cacheSeconds=60" alt="License">
     </a>
 </p>
 
