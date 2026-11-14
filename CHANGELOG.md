@@ -28,6 +28,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Updated the package description to clarify that Owise is built on the Wise Platform API.
 - Depend on `theocode12/wise-php-sdk:^0.2` and use its `Theocode\Wise` namespace.
 - Removed webhook persistence before v1: webhook ingestion is now stateless (verify → dispatch queued job → process → fire
   events). The `wise_webhook_events` migration, `Owise\Models\WiseWebhookEvent`, `Owise\Enums\WebhookEventStatus`, the
