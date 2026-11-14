@@ -1,0 +1,84 @@
+name: release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: SemVer version without the v prefix (for example, 0.1.0)
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-main
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Require dispatch from main
+        if: github.ref != 'refs/heads/main'
+        run: |
+          echo "Releases must be dispatched from main." >&2
+          exit 1
+
+      - name: Check out main
+        uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Record release target
+        id: target
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Validate version and extract changelog notes
+        env:
+          VERSION: ${{ inputs.version }}
+        run: |
+          python3 - <<'PY'
+          import os
+          import pathlib
+          import re
+          import sys
+
+          version = os.environ["VERSION"]
+          if not re.fullmatch(r"0\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)", version):
+              sys.exit("Use a stable 0.x.y SemVer version until the v1 release criteria are met.")
+
+          changelog = pathlib.Path("CHANGELOG.md").read_text(encoding="utf-8")
+          section = re.search(
+              rf"^## \[{re.escape(version)}\] - \d{{4}}-\d{{2}}-\d{{2}}\s*$\n(.*?)(?=^## \[|\Z)",
+              changelog,
+              re.MULTILINE | re.DOTALL,
+          )
+          if section is None or not section.group(1).strip():
+              sys.exit(f"Add a dated CHANGELOG.md section for {version} before releasing.")
+
+          notes = section.group(1).strip() + "\n"
+          pathlib.Path(os.environ["RUNNER_TEMP"], "release-notes.md").write_text(notes, encoding="utf-8")
+          PY
+
+      - name: Ensure the version has not already been tagged
+        env:
+          VERSION: ${{ inputs.version }}
+        run: |
+          if git ls-remote --tags --exit-code origin "refs/tags/v${VERSION}" >/dev/null 2>&1; then
+            echo "Tag v${VERSION} already exists." >&2
+            exit 1
+          fi
+
+      - name: Create tag and GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ inputs.version }}
+          TARGET_SHA: ${{ steps.target.outputs.sha }}
+        run: >-
+          gh release create "v${VERSION}"
+          --target "${TARGET_SHA}"
+          --title "Owise v${VERSION}"
+          --notes-file "${RUNNER_TEMP}/release-notes.md"

@@ -1,7 +1,5 @@
 <?php
 
-use DateTimeImmutable;
-use DateTimeZone;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Queue;
 use Owise\Jobs\ProcessWiseWebhook;
@@ -34,12 +32,12 @@ it('normalizes DateTime webhook timestamps to UTC without changing the instant',
 });
 
 it('uses UTC for default webhook timestamps regardless of the app timezone', function () {
+    $this->travelTo(new DateTimeImmutable('2026-11-14T12:00:00Z'));
     config()->set('app.timezone', 'Pacific/Auckland');
 
     $payload = WebhookFactory::transferStateChanged(42, 'processing', 'outgoing_payment_sent');
-    $expected = now()->setTimezone(new DateTimeZone('UTC'))->format('Y-m-d\\TH:i:s.v\\Z');
 
-    expect($payload['data']['occurred_at'])->toBe($expected);
+    expect($payload['data']['occurred_at'])->toBe('2026-11-14T12:00:00.000Z');
 });
 
 it('builds balance payloads', function () {

@@ -16,7 +16,7 @@
             "homepage": "https://github.com/Theocode12"
         }
     ],
-    "homepage": "https://github.com/Theocode12/laravel-wise",
+    "homepage": "https://github.com/Theocode12/owise",
     "require": {
         "php": "^8.3",
         "brick/money": "^0.15",
