@@ -1,0 +1,75 @@
+[
+    {
+        "type": "PERSONAL",
+        "id": 14575282,
+        "publicId": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+        "userId": 9889627,
+        "address": {
+            "id": 36086782,
+            "addressFirstLine": "24 Willow Creek Lane",
+            "city": "Bristol",
+            "countryIso2Code": "GB",
+            "countryIso3Code": "gbr",
+            "postCode": "BS1 6AE",
+            "stateCode": null
+        },
+        "email": "sarah.jenkins@example.com",
+        "createdAt": "2023-01-15T10:30:00",
+        "updatedAt": "2025-06-18T14:20:00",
+        "avatar": "https://example.com/avatars/sarah_jenkins.png",
+        "currentState": "VISIBLE",
+        "contactDetails": {
+            "email": "sarah.contact@example.com",
+            "phoneNumber": "+447700900123"
+        },
+        "firstName": "Sarah",
+        "lastName": "Jenkins",
+        "preferredName": "Sal",
+        "dateOfBirth": "1985-05-20",
+        "phoneNumber": "+447700900456",
+        "secondaryAddresses": [],
+        "fullName": "Sarah Jenkins"
+    },
+    {
+        "type": "BUSINESS",
+        "id": 14599371,
+        "publicId": "f0e9d8c7-b6a5-4321-fedc-ba9876543210",
+        "userId": 9889627,
+        "address": {
+            "id": 36152772,
+            "addressFirstLine": "15 Tech Hub Studios",
+            "city": "Manchester",
+            "countryIso2Code": "GB",
+            "countryIso3Code": "gbr",
+            "postCode": "M1 7JA",
+            "stateCode": null
+        },
+        "email": "info@innovate-solutions.co.uk",
+        "createdAt": "2024-03-10T09:00:00",
+        "updatedAt": "2025-06-18T14:22:00",
+        "contactDetails": {
+            "email": "contact@innovate-solutions.co.uk",
+            "phoneNumber": "+441617891234"
+        },
+        "businessName": "Innovate Solutions Ltd",
+        "registrationNumber": "SC1234567890ABCD",
+        "descriptionOfBusiness": "SOFTWARE_DEVELOPMENT",
+        "webpage": "https://www.innovate-solutions.co.uk",
+        "companyType": "LIMITED_COMPANY",
+        "businessFreeFormDescription": "We create cutting-edge software for businesses.",
+        "firstLevelCategory": "TECHNOLOGY",
+        "secondLevelCategory": "SOFTWARE_SERVICES",
+        "operationalAddresses": [
+            {
+                "id": 36152773,
+                "addressFirstLine": "Unit 5, Innovation Park",
+                "city": "Leeds",
+                "countryIso2Code": "GB",
+                "countryIso3Code": "gbr",
+                "postCode": "LS1 4YZ",
+                "stateCode": null
+            }
+        ],
+        "fullName": "Innovate Solutions Ltd"
+    }
+]

@@ -1,0 +1,95 @@
+{
+    "name": "theocode12/owise",
+    "description": "Laravel-native payouts and treasury for Wise, built on theocode12/wise-php-sdk.",
+    "keywords": [
+        "laravel",
+        "wise",
+        "transferwise",
+        "payouts",
+        "treasury"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Theocode12",
+            "homepage": "https://github.com/Theocode12"
+        }
+    ],
+    "homepage": "https://github.com/Theocode12/laravel-wise",
+    "require": {
+        "php": "^8.3",
+        "brick/money": "^0.15",
+        "guzzlehttp/psr7": "^2.9 || ^3.0",
+        "illuminate/cache": "^13.0",
+        "illuminate/console": "^13.0",
+        "illuminate/contracts": "^13.0",
+        "illuminate/database": "^13.0",
+        "illuminate/http": "^13.0",
+        "illuminate/queue": "^13.0",
+        "illuminate/routing": "^13.0",
+        "illuminate/support": "^13.0",
+        "ramsey/uuid": "^4.7",
+        "theocode12/wise-php-sdk": "^0.2"
+    },
+    "require-dev": {
+        "driftingly/rector-laravel": "^2.6",
+        "larastan/larastan": "^3.13",
+        "laravel/pint": "^1.32",
+        "orchestra/testbench": "^11.0",
+        "pestphp/pest": "^4.7 || ^5.0",
+        "pestphp/pest-plugin-laravel": "^4.1 || ^5.0",
+        "rector/rector": "^2.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Owise\\": "src/",
+            "Owise\\Database\\Factories\\": "database/factories/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Owise\\Tests\\": "tests/",
+            "Workbench\\App\\": "workbench/app/",
+            "Workbench\\Database\\Factories\\": "workbench/database/factories/",
+            "Workbench\\Database\\Seeders\\": "workbench/database/seeders/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Owise\\WiseServiceProvider"
+            ],
+            "aliases": {
+                "Wise": "Owise\\Facades\\Wise"
+            }
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "@clear",
+            "@prepare"
+        ],
+        "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
+        "prepare": "@php vendor/bin/testbench package:discover --ansi",
+        "lint": "pint",
+        "lint:check": "pint --test",
+        "stan": "phpstan analyse --memory-limit=1G",
+        "test": "pest",
+        "refactor": "rector process",
+        "refactor:check": "rector process --dry-run",
+        "qa": [
+            "@lint:check",
+            "@stan",
+            "@test"
+        ]
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

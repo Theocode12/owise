@@ -1,0 +1,7 @@
+{
+    "hasLimit": true,
+    "depositLimit": {
+        "amount": 2000,
+        "currency": "SGD"
+    }
+}

@@ -1,0 +1,36 @@
+[
+    {
+        "id": "e889e085-3677-4110-be26-3e9160ac9f25",
+        "name": "#1 subscription",
+        "delivery": {
+            "version": "2.0.0",
+            "url": "https://your.webhook.url/12345"
+        },
+        "trigger_on": "transfers#state-change",
+        "scope": {
+            "domain": "profile",
+            "id": "<your profile ID>"
+        },
+        "created_by": {
+            "type": "user",
+            "id": "<your user ID>"
+        }
+    },
+    {
+        "id": "eabeb3f5-c134-4a1c-99e2-86a1163daf1b",
+        "name": "#2 subscription",
+        "delivery": {
+            "version": "2.0.0",
+            "url": "https://your.webhook.url/12345"
+        },
+        "trigger_on": "transfers#state-change",
+        "scope": {
+            "domain": "profile",
+            "id": "<your profile ID>"
+        },
+        "created_by": {
+            "type": "user",
+            "id": "<your user ID>"
+        }
+    }
+]

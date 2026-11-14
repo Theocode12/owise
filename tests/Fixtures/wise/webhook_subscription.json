@@ -1,0 +1,18 @@
+{
+    "id": "72195556-e5cb-495e-a010-b37a4f2a3043",
+    "name": "Webhook Subscription #1",
+    "delivery": {
+        "version": "4.0.0",
+        "url": "https://your.webhook.url/12345"
+    },
+    "trigger_on": "transfers#state-change",
+    "scope": {
+        "domain": "profile",
+        "id": "<your profile ID>"
+    },
+    "created_by": {
+        "type": "user",
+        "id": "<your user ID>"
+    },
+    "created_at": "2019-10-10T13:55:57Z"
+}

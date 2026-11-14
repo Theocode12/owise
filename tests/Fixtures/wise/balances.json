@@ -1,0 +1,29 @@
+[
+    {
+        "id": 200001,
+        "currency": "EUR",
+        "type": "STANDARD",
+        "name": null,
+        "icon": null,
+        "investmentState": "NOT_INVESTED",
+        "amount": {
+            "value": 310.86,
+            "currency": "EUR"
+        },
+        "reservedAmount": {
+            "value": 0,
+            "currency": "EUR"
+        },
+        "cashAmount": {
+            "value": 310.86,
+            "currency": "EUR"
+        },
+        "totalWorth": {
+            "value": 310.86,
+            "currency": "EUR"
+        },
+        "creationTime": "2020-05-20T14:43:16.658Z",
+        "modificationTime": "2020-05-20T14:43:16.658Z",
+        "visible": true
+    }
+]

@@ -1,0 +1,54 @@
+{
+    "id": 30000001,
+    "type": "CONVERSION",
+    "state": "COMPLETED",
+    "balancesAfter": [
+        {
+            "id": 1,
+            "value": 10000594.71,
+            "currency": "GBP"
+        }
+    ],
+    "creationTime": "2017-11-21T09:55:49.275Z",
+    "sourceAmount": {
+        "value": 113.48,
+        "currency": "EUR"
+    },
+    "targetAmount": {
+        "value": 100,
+        "currency": "GBP"
+    },
+    "rate": 0.88558,
+    "feeAmounts": [
+        {
+            "value": 0.56,
+            "currency": "EUR"
+        }
+    ],
+    "steps": [
+        {
+            "id": 369588,
+            "type": "CONVERSION",
+            "creationTime": "2017-11-21T09:55:49.276Z",
+            "balancesAfter": [
+                {
+                    "value": 9998887.01,
+                    "currency": "EUR"
+                }
+            ],
+            "sourceAmount": {
+                "value": 113.48,
+                "currency": "EUR"
+            },
+            "targetAmount": {
+                "value": 100,
+                "currency": "GBP"
+            },
+            "fee": {
+                "value": 0.56,
+                "currency": "EUR"
+            },
+            "rate": 0.88558
+        }
+    ]
+}

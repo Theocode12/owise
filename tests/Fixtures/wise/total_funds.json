@@ -1,0 +1,34 @@
+{
+    "totalWorth": {
+        "value": 2000,
+        "currency": "EUR"
+    },
+    "totalAvailable": {
+        "value": 2500,
+        "currency": "EUR"
+    },
+    "totalCash": {
+        "value": 2000,
+        "currency": "EUR"
+    },
+    "overdraft": {
+        "limit": {
+            "value": 500,
+            "currency": "EUR"
+        },
+        "used": {
+            "value": 100,
+            "currency": "EUR"
+        },
+        "available": {
+            "value": 400,
+            "currency": "EUR"
+        },
+        "availableByCurrency": [
+            {
+                "value": 400,
+                "currency": "EUR"
+            }
+        ]
+    }
+}

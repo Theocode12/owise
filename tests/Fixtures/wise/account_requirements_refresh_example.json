@@ -1,0 +1,26 @@
+[
+    {
+        "type": "address_example",
+        "title": "Recipient address",
+        "usageInfo": null,
+        "fields": [
+            {
+                "name": "Country",
+                "group": [
+                    {
+                        "key": "address.country",
+                        "name": "Country",
+                        "type": "text",
+                        "refreshRequirementsOnChange": true,
+                        "required": true,
+                        "validationRegexp": null,
+                        "minLength": null,
+                        "maxLength": null,
+                        "example": "US",
+                        "valuesAllowed": null
+                    }
+                ]
+            }
+        ]
+    }
+]

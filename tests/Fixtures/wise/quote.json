@@ -1,0 +1,109 @@
+{
+    "id": "11144c35-9fe8-4c32-b7fd-d05c2a7734bf",
+    "sourceCurrency": "GBP",
+    "targetCurrency": "USD",
+    "sourceAmount": 100,
+    "targetAmount": 129.24,
+    "payOut": "BANK_TRANSFER",
+    "preferredPayIn": "BANK_TRANSFER",
+    "rate": 1.30445,
+    "createdTime": "2019-04-05T13:18:58Z",
+    "user": 55,
+    "profile": 101,
+    "rateType": "FIXED",
+    "rateExpirationTime": "2019-04-08T13:18:57Z",
+    "guaranteedTargetAmountAllowed": true,
+    "targetAmountAllowed": true,
+    "guaranteedTargetAmount": false,
+    "providedAmountType": "SOURCE",
+    "pricingConfiguration": {
+        "fee": {
+            "type": "OVERRIDE",
+            "variable": 0.011,
+            "fixed": 15.42
+        }
+    },
+    "paymentOptions": [
+        {
+            "disabled": false,
+            "estimatedDelivery": "2019-04-08T12:30:00Z",
+            "formattedEstimatedDelivery": "by Apr 8",
+            "estimatedDeliveryDelays": [
+                {
+                    "reason": "sample reason"
+                }
+            ],
+            "fee": {
+                "transferwise": 3.04,
+                "payIn": 0,
+                "discount": 2.27,
+                "partner": 0,
+                "total": 0.77
+            },
+            "price": {
+                "priceSetId": 238,
+                "total": {
+                    "type": "TOTAL",
+                    "label": "Total fees",
+                    "value": {
+                        "amount": 0.77,
+                        "currency": "GBP",
+                        "label": "0.77 GBP"
+                    },
+                    "explanation": {}
+                },
+                "items": [
+                    {
+                        "id": null,
+                        "type": "FEE",
+                        "label": "fee",
+                        "value": {
+                            "amount": 0,
+                            "currency": "GBP",
+                            "label": "0 GBP"
+                        },
+                        "explanation": {
+                            "plainText": null,
+                            "markdown": null
+                        }
+                    }
+                ],
+                "deferredFee": {
+                    "amount": 14.79,
+                    "currency": "BRL"
+                },
+                "calculatedOn": {
+                    "unroundedAmountToConvert": {
+                        "amount": 179.97342,
+                        "currency": "BRL"
+                    }
+                }
+            },
+            "sourceAmount": 100,
+            "targetAmount": 129.24,
+            "sourceCurrency": "GBP",
+            "targetCurrency": "USD",
+            "payIn": "BANK_TRANSFER",
+            "payOut": "BANK_TRANSFER",
+            "allowedProfileTypes": [
+                "PERSONAL",
+                "BUSINESS"
+            ],
+            "payInProduct": "CHEAP",
+            "feePercentage": 0.0092,
+            "disabledReason": {
+                "code": null,
+                "message": null
+            }
+        }
+    ],
+    "status": "PENDING",
+    "expirationTime": "2019-04-05T13:48:58Z",
+    "notices": [
+        {
+            "text": "You can have a maximum of 3 open transfers with a guaranteed rate. After that, they'll be transferred using the live rate. Complete or cancel your other transfers to regain the use of guaranteed rate.",
+            "link": null,
+            "type": "WARNING"
+        }
+    ]
+}

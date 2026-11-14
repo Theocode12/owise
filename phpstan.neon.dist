@@ -1,0 +1,11 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+
+parameters:
+    level: 8
+    phpVersion: 80300
+    paths:
+        - src
+        - workbench/app/Models/User.php
+        - tests/Fixtures/Models/Freelancer.php
+        - tests/Fixtures/WebhookTestHost.php
